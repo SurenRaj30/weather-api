@@ -1,0 +1,16 @@
+services:
+  redis:
+    image: redis:latest
+    container_name: my_redis
+    ports:
+      - "6379:6379"  # Map Redis port
+    volumes:
+      - redis_data:/data  # Persist data
+    networks:
+      - redis_network
+
+volumes:
+  redis_data:  # Define the volume for Redis data
+
+networks:
+  redis_network:  # Define a network for Redis
