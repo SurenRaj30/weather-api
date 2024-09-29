@@ -1,4 +1,5 @@
 # Weather API
+- Project URL: https://roadmap.sh/projects/weather-api-wrapper-service
 
 ## Overview
 This project is a simple weather API built using Go, designed to retrieve weather data and integrate with Redis for caching. The application is configured to run on port 9000 and is easily scalable with Docker.
