@@ -45,6 +45,7 @@ func initRedis() {
 	// 	log.Fatalf("Invalid Redis DB value: %v", err)
 	// }
 
+	// create new connection to Redis
 	redisClient = redis.NewClient(&redis.Options{
 		Addr: "localhost:6379",
 		DB:   0, // Set the converted DB number
@@ -106,7 +107,7 @@ func weatherHandler(w http.ResponseWriter, r *http.Request)  {
     redisKey := strings.ReplaceAll(city, " ", "_")
     fmt.Println("Querying Redis for city:", redisKey)
 
-	// check redis cache
+	// check redis cache, creates empty context
 	ctx := context.Background();
 	cachedData, err := redisClient.Get(ctx, city).Result();
 
